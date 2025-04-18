@@ -33,13 +33,13 @@ var stimuli = ["BACS", "colourBACS"]
 
 // EXPERIMENT STIMULI
 // Brussels Artificial Character Set (BACS)
-const BACS = ['/bacs/BACS_J.png', '/bacs/BACS_R.png', '/bacs/BACS_X.png', '/bacs/BACS_K.png',
-    '/bacs/BACS_P.png', '/bacs/BACS_G.png', '/bacs/BACS_V.png', '/bacs/BACS_B.png'
+const BACS = ['bacs/BACS_J.png', 'bacs/BACS_R.png', 'bacs/BACS_X.png', 'bacs/BACS_K.png',
+    'bacs/BACS_P.png', 'bacs/BACS_G.png', 'bacs/BACS_V.png', 'bacs/BACS_B.png'
 ] // these eight are the most dissimilar
 
 // Coloured BACS
-const colouredBACS = ['/bacs_colour/BACS_J_red.png', '/bacs_colour/BACS_R_red.png', '/bacs_colour/BACS_X_red.png', '/bacs_colour/BACS_K_red.png',
-    '/bacs_colour/BACS_J_blue.png', '/bacs_colour/BACS_R_blue.png', '/bacs_colour/BACS_X_blue.png', '/bacs_colour/BACS_K_blue.png'
+const colouredBACS = ['bacs_colour/BACS_J_red.png', 'bacs_colour/BACS_R_red.png', 'bacs_colour/BACS_X_red.png', 'bacs_colour/BACS_K_red.png',
+    'bacs_colour/BACS_J_blue.png', 'bacs_colour/BACS_R_blue.png', 'bacs_colour/BACS_X_blue.png', 'bacs_colour/BACS_K_blue.png'
 ] // select eight to keep number of choices constant.
 
 // BUILD EXPERIMENT
