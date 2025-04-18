@@ -10,6 +10,8 @@
  * started coding: 4/3/25
  * changed to eight BACS versus four BACS * 2 colours (red,blue)
  * includes three between-subjects conditions: interleaved, colour first, no colour first
+ * 
+ * this is the demo code, showing only the interleaved condition for ease.
  **/
 
 /* Initialize jsPsych */
@@ -45,8 +47,8 @@ const colouredBACS = ['bacs_colour/BACS_J_red.png', 'bacs_colour/BACS_R_red.png'
 // BUILD EXPERIMENT
 // There are three experiment conditions: interleaved; baseline first; conjunction first
 const timeline_interleaved = []
-const timeline_baselineFirst = []
-const timeline_conjunctionFirst = []
+//const timeline_baselineFirst = []
+//const timeline_conjunctionFirst = []
 
 /* force fullscreen */
 var enter_fullscreen = {
@@ -54,8 +56,8 @@ var enter_fullscreen = {
     fullscreen_mode: true,
 }
 timeline_interleaved.push(enter_fullscreen);
-timeline_baselineFirst.push(enter_fullscreen);
-timeline_conjunctionFirst.push(enter_fullscreen);
+//timeline_baselineFirst.push(enter_fullscreen);
+//timeline_conjunctionFirst.push(enter_fullscreen);
 
 /* screen resize */
 var resize = {
@@ -66,8 +68,8 @@ var resize = {
     pixels_per_unit: 150
 };
 timeline_interleaved.push(resize);
-timeline_baselineFirst.push(resize);
-timeline_conjunctionFirst.push(resize);
+//timeline_baselineFirst.push(resize);
+//timeline_conjunctionFirst.push(resize);
 
 // preload stimuli
 const preload = {
@@ -75,8 +77,8 @@ const preload = {
     images: [colouredBACS, BACS],
 };
 timeline_interleaved.push(preload);
-timeline_baselineFirst.push(preload);
-timeline_conjunctionFirst.push(preload);
+//timeline_baselineFirst.push(preload);
+//timeline_conjunctionFirst.push(preload);
 
 /* define welcome message trial */
 /* add consent form here? */
@@ -90,8 +92,8 @@ var welcome = {
     button_html: ['<button class="jspsych-btn">%choice%</button>']
 };
 timeline_interleaved.push(welcome);
-timeline_baselineFirst.push(welcome);
-timeline_conjunctionFirst.push(welcome);
+//timeline_baselineFirst.push(welcome);
+//timeline_conjunctionFirst.push(welcome);
 
 /* define instructions trial */
 var instructions = {
@@ -104,8 +106,8 @@ var instructions = {
     button_html: ['<button class="jspsych-btn">%choice%</button>']
 };
 timeline_interleaved.push(instructions);
-timeline_baselineFirst.push(instructions);
-timeline_conjunctionFirst.push(instructions);
+//timeline_baselineFirst.push(instructions);
+//timeline_conjunctionFirst.push(instructions);
 
 // TRIAL LOOP
 // Interleaved trials
@@ -180,7 +182,7 @@ for (var t = 0; t < n_trials; t++) {
     timeline_interleaved.push(copy_task)
 
 }
-
+/* The code below handles condition order.
 // Baseline first
 const BACS_array = Array(n_trials / 2).fill('BACS')
 const colouredBACS_array = Array(n_trials / 2).fill('colourBACS')
@@ -328,8 +330,9 @@ for (var t = 0; t < n_trials; t++) {
     timeline_conjunctionFirst.push(copy_task)
 
 }
-
-/* upload data */
+*/
+// Do not save data from demo.
+/* upload data 
 var save_data = {
     type: jsPsychPipe,
     action: "save",
@@ -338,10 +341,10 @@ var save_data = {
     wait_message: "<p>Saving data. Please do not close this page.</p>",
     data_string: () => jsPsych.data.get().csv()
 };
-
-timeline_interleaved.push(save_data);
-timeline_baselineFirst.push(save_data);
-timeline_conjunctionFirst.push(save_data);
+*/
+//timeline_interleaved.push(save_data);
+//timeline_baselineFirst.push(save_data);
+//timeline_conjunctionFirst.push(save_data);
 
 /* end of experiment */
 var end_experiment = {
@@ -351,17 +354,17 @@ var end_experiment = {
     button_html: ['<button class="jspsych-btn">%choice%</button>']
 }
 timeline_interleaved.push(end_experiment);
-timeline_baselineFirst.push(end_experiment);
-timeline_conjunctionFirst.push(end_experiment);
+//timeline_baselineFirst.push(end_experiment);
+//timeline_conjunctionFirst.push(end_experiment);
 
 var close_fullscreen = {
     type: jsPsychFullscreen,
     fullscreen_mode: false
 }
 timeline_interleaved.push(close_fullscreen);
-timeline_baselineFirst.push(close_fullscreen);
-timeline_conjunctionFirst.push(close_fullscreen);
-
+//timeline_baselineFirst.push(close_fullscreen);
+//timeline_conjunctionFirst.push(close_fullscreen);
+/* 
 // DataPipe controls condition assignment
 // Retrieve between-subjects condition
 async function createExperiment() {
@@ -375,4 +378,5 @@ async function createExperiment() {
     jsPsych.run(timeline);
 }
 createExperiment();
-
+*/
+jsPsych.run(timeline_interleaved)
